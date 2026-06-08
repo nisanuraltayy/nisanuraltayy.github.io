@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisa Nur Altay — Backend & AI Developer</title>
+    <meta name="description" content="Backend ve AI mühendisliği üzerine çalışan, RAG sistemleri geliştiren bir öğrenci.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">nisa<span>.</span>dev</a>
+            <div class="nav-links">
+                <a href="#hakkimda">Hakkımda</a>
+                <a href="#projeler">Projeler</a>
+                <a href="#yetenekler">Yetenekler</a>
+                <a href="#iletisim">İletişim</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir"></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-tag">Mezuniyet: Haziran 2027</span>
+            <h1>
+                Merhaba, ben <span class="gradient-text">Nisa Nur Altay</span>
+            </h1>
+            <p class="subtitle">
+                Backend ve AI mühendisliği üzerine çalışan bir Yönetim Bilişim Sistemleri öğrencisiyim. Python, FastAPI ve RAG sistemleri ile üretiyorum.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projeler" class="btn btn-primary">
+                    Projelerimi Gör
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#iletisim" class="btn btn-secondary">İletişime Geç</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKKIMDA -->
+    <section id="hakkimda">
+        <div class="container reveal">
+            <div class="section-header">
+                <div class="label">Hakkımda</div>
+                <h2>Yazılım ve AI ile öğrenmeye devam ediyorum</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Akdeniz Üniversitesi <strong>Yönetim Bilişim Sistemleri</strong> öğrencisiyim. Backend geliştirme ve AI mühendisliği üzerine yoğunlaşıyorum.
+                    </p>
+                    <p>
+                        Özellikle <strong>RAG (Retrieval-Augmented Generation)</strong> sistemleri, vektör veritabanları ve LLM entegrasyonları üzerine çalışıyorum. Bu alanlarda sıfırdan kendi sistemlerimi kurarak öğrenmeye devam ediyorum.
+                    </p>
+                    <p>
+                        Şu anda <strong>staj fırsatları</strong> ve open source projelere katkı için aktif arayış içindeyim.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="number">2027</span>
+                        <div class="label">Mezuniyet</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">3+</span>
+                        <div class="label">Proje</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">Python</span>
+                        <div class="label">Ana Dil</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">RAG</span>
+                        <div class="label">Odak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJELER -->
+    <section id="projeler">
+        <div class="container reveal">
+            <div class="section-header">
+                <div class="label">Projeler</div>
+                <h2>Öne çıkan çalışmalarım</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-meta">
+                        <span class="project-type">Backend / AI</span>
+                    </div>
+                    <h3>RAG Belge Sorgulama Sistemi</h3>
+                    <p>
+                        Kullanıcının yüklediği belgelere (metin, TXT, PDF) doğal dil ile soru sorabildiği, RAG mimarisi üzerine kurulu bir backend sistemi. ChromaDB ve PostgreSQL ile polyglot persistence yaklaşımı, Gemini LLM entegrasyonu, Docker ile container'lanmış ve Render üzerinde canlıda.
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">ChromaDB</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">SQLAlchemy</span>
+                        <span class="tech-badge">Alembic</span>
+                        <span class="tech-badge">Google Gemini</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Render</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="rag-projesi.html">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Detaylar
+                        </a>
+                        <a href="https://rag-document-system-88fu.onrender.com/docs" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Canlı Demo
+                        </a>
+                        <a href="https://github.com/nisanuraltayy/rag-document-system" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YETENEKLER -->
+    <section id="yetenekler">
+        <div class="container reveal">
+            <div class="section-header">
+                <div class="label">Yetenekler</div>
+                <h2>Çalıştığım teknolojiler</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    </div>
+                    <h4>Backend</h4>
+                    <p>Python, FastAPI, REST API, SQLAlchemy ORM, Alembic Migrations, Dependency Injection</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <h4>Veritabanı</h4>
+                    <p>PostgreSQL, ChromaDB, Polyglot Persistence, Vektör veritabanları</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+                    </div>
+                    <h4>AI / ML</h4>
+                    <p>RAG Sistemleri, LLM Entegrasyonu, Google Gemini, Embedding, Prompt Engineering</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h4>DevOps</h4>
+                    <p>Docker, Git, GitHub, Render Deploy, Linux, CI/CD temelleri</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section id="iletisim">
+        <div class="container reveal">
+            <div class="contact-card">
+                <h2>Birlikte çalışalım</h2>
+                <p>Staj, iş birliği veya projeler hakkında konuşmak için bana ulaşın. Her zaman yeni şeyler öğrenmeye ve katkıda bulunmaya açığım.</p>
+                <div class="social-links">
+                    <a href="mailto:nisanuraltay50@gmail.com">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/nisa-nur-altay-2009n" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/nisanuraltayy" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Nisa Nur Altay · Built with HTML, CSS & JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
