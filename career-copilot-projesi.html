@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Copilot — Nisa Nur Altay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">nisa<span>.</span>dev</a>
+            <div class="nav-links">
+                <a href="index.html#hakkimda">Hakkımda</a>
+                <a href="index.html#projeler">Projeler</a>
+                <a href="index.html#iletisim">İletişim</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir"></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DETAY -->
+    <section>
+        <div class="container">
+            <div class="project-detail">
+
+                <a href="index.html#projeler" class="back-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Projelere dön
+                </a>
+
+                <span class="hero-tag">Backend / AI / Full-Stack Project</span>
+                <h1 style="margin-top: 16px;">Career Copilot</h1>
+                <p class="description">
+                    İş arayanlar için yapay zeka destekli bir kariyer asistanı. CV'yi analiz eder,
+                    iş ilanlarıyla uyumunu hesaplar, en uygun ilanları önerir ve motivasyon mektubu üretir.
+                </p>
+
+                <div class="hero-buttons" style="margin-bottom: 40px;">
+                    <a href="https://github.com/nisanuraltayy/career-copilot" target="_blank" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Backend
+                    </a>
+                    <a href="https://github.com/nisanuraltayy/career-copilot-frontend" target="_blank" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Frontend
+                    </a>
+                </div>
+
+                <h2>Sistem ne yapıyor?</h2>
+                <p>
+                    Kullanıcı bir CV (PDF) yükler ve iş ilanları ekler. Sistem her ikisini de büyük dil modeliyle (LLM)
+                    analiz edip yapılandırılmış bilgiye (beceriler, deneyim, gerekli nitelikler) dönüştürür. Ardından dört şey yapabilir:
+                    CV'yi bölümlere ayırır, bir CV ile bir ilan arasındaki uyumu yüzdelik hesaplar, bir CV'ye en uygun ilanları
+                    anlamsal benzerliğe göre sıralar ve seçilen ilana özel bir motivasyon mektubu üretir.
+                </p>
+                <p>
+                    Projenin merkezinde <strong>anlamsal eşleştirme</strong> var: beceriler kelime kelime değil, anlam olarak
+                    karşılaştırılır. Örneğin "PostgreSQL" ile "SQL", ya da "REST API" ile "REST API tasarımı" birbirine yakın kabul edilir.
+                </p>
+
+                <h2>Mimari Kararlar</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Hibrit Uyum Analizi</h4>
+                        <p>V1 deterministik kelime eşleştirme (küme kesişimi) + V2 LLM tabanlı anlamsal analiz. V1 gerekli becerilere %70, tercih edilenlere %30 ağırlık verir.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Graceful Degradation</h4>
+                        <p>V2 (LLM) çağrısı başarısız olsa bile V1 sonucu her zaman döner. Kullanıcı hiçbir zaman boş sonuçla karşılaşmaz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>pgvector ile Vektör Araması</h4>
+                        <p>Benzerlik hesabı uygulama katmanında değil, veritabanında (cosine distance operatörü) yapılır. Ölçeklenebilir bir yaklaşım.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Modüler Router Yapısı</h4>
+                        <p>Her özellik (CV, ilan, uyum, mektup, öneri) kendi router dosyasında. Separation of concerns ile main.py sade tutuldu.</p>
+                    </div>
+                </div>
+
+                <h2>Teknoloji Stack'i</h2>
+                <ul>
+                    <li><strong>Backend:</strong> Python, FastAPI, Uvicorn</li>
+                    <li><strong>Veritabanı:</strong> PostgreSQL + pgvector (vektör benzerlik araması)</li>
+                    <li><strong>ORM:</strong> SQLAlchemy</li>
+                    <li><strong>LLM & Embedding:</strong> Google Gemini (gemini-embedding-001, 3072 boyut)</li>
+                    <li><strong>PDF parsing:</strong> pypdf</li>
+                    <li><strong>Frontend:</strong> React, Vite, React Router</li>
+                    <li><strong>Container:</strong> Docker (pgvector/pgvector:pg16 image)</li>
+                </ul>
+
+                <h2>Öneri Akışı</h2>
+                <ol style="color: var(--text-muted); padding-left: 24px;">
+                    <li style="margin-bottom: 12px;"><strong>Analiz:</strong> CV veya ilan eklendiğinde Gemini metni yapılandırılmış JSON'a çevirir (beceriler, deneyim, gerekli nitelikler).</li>
+                    <li style="margin-bottom: 12px;"><strong>Metin hazırlama:</strong> Analiz JSON'undan temiz, öz bir metin oluşturulur. Ham CV metni değil bu kullanılır — çünkü embedding modelinin 2048 token girdi limiti var ve JSON gürültüsüz.</li>
+                    <li style="margin-bottom: 12px;"><strong>Embedding:</strong> Bu metin gemini-embedding-001 ile 3072 boyutlu bir vektöre çevrilir.</li>
+                    <li style="margin-bottom: 12px;"><strong>Saklama:</strong> Vektör, kaydın embedding kolonuna (Vector(3072)) yazılır. Kolon nullable — embedding üretilemese bile kayıt kaybolmaz.</li>
+                    <li style="margin-bottom: 12px;"><strong>Öneri:</strong> Bir CV'nin vektörü, tüm ilanların vektörleriyle pgvector cosine distance ile karşılaştırılır, en yakınlar sıralanır.</li>
+                    <li style="margin-bottom: 12px;"><strong>Skor:</strong> Uzaklık, kullanıcı dostu bir uyum yüzdesine çevrilir (1 - cosine distance).</li>
+                </ol>
+
+                <h2>API Endpoint'leri</h2>
+                <ul>
+                    <li><code>POST /cv-yukle</code> — PDF CV yükle ve analiz et</li>
+                    <li><code>POST /is-ilani-analiz</code> — İş ilanı ekle ve analiz et</li>
+                    <li><code>POST /uyum-analizi</code> — CV-ilan uyumunu hesapla (V1 + V2)</li>
+                    <li><code>GET /is-onerileri/{cv_id}</code> — Bir CV'ye en uygun ilanları öner (pgvector)</li>
+                    <li><code>POST /motivasyon-mektubu</code> — Kişiselleştirilmiş motivasyon mektubu üret</li>
+                    <li><code>GET /cv-gecmis, /is-ilanlari, /uyum-analizi-gecmis, /motivasyon-mektubu-gecmis</code> — Geçmiş kayıtlar</li>
+                </ul>
+
+                <h2>Öğrendiklerim</h2>
+                <p>
+                    Bu projede vektör veritabanlarıyla anlamsal arama yapmayı (pgvector, embedding boyutu-şema uyumu, cosine distance);
+                    deterministik ve LLM tabanlı yaklaşımları tek bir sistemde birleştirmeyi (hibrit analiz); hataya dayanıklı sistem
+                    tasarımını (graceful degradation, nullable embedding kolonu); modüler bir FastAPI mimarisi kurmayı (router ayrımı,
+                    servis katmanı); ve bir React frontend'i ayrı bir backend'e bağlamayı (CORS, kontrat uyumu) öğrendim.
+                </p>
+
+                <a href="index.html#projeler" class="back-link" style="margin-top: 48px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Projelere dön
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Nisa Nur Altay</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
