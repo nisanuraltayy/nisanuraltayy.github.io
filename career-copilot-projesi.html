@@ -34,14 +34,19 @@
                     Projelere dön
                 </a>
 
-                <span class="hero-tag">Backend / AI / Full-Stack Project</span>
+                <span class="hero-tag">Backend / AI / Full-Stack Project · Canlıda</span>
                 <h1 style="margin-top: 16px;">Career Copilot</h1>
                 <p class="description">
                     İş arayanlar için yapay zeka destekli bir kariyer asistanı. CV'yi analiz eder,
                     iş ilanlarıyla uyumunu hesaplar, en uygun ilanları önerir ve motivasyon mektubu üretir.
+                    JWT kimlik doğrulama ile çok kullanıcılı; Docker ile tam yığın olarak Render'da canlıda.
                 </p>
 
                 <div class="hero-buttons" style="margin-bottom: 40px;">
+                    <a href="https://career-copilot-frontend-3ntf.onrender.com" target="_blank" class="btn btn-primary">
+                        Canlı Demo
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
                     <a href="https://github.com/nisanuraltayy/career-copilot" target="_blank" class="btn btn-secondary">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                         Backend
@@ -68,20 +73,28 @@
 
                 <div class="feature-grid">
                     <div class="feature-item">
+                        <h4>Katmanlı Mimari</h4>
+                        <p>router → service → schema → db katmanları; iş mantığı HTTP'den bağımsız ve saf fonksiyonlarla birim test edilebilir. Merkezî hata yönetimi, tutarlı <code>{error:{code,message}}</code> gövdesi.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>JWT Auth + Multi-tenancy</h4>
+                        <p>bcrypt parola hash'i, kısa ömürlü access + uzun ömürlü refresh token (rotasyonlu). Her kaynak <code>user_id</code>'ye bağlı — bir kullanıcı diğerinin verisini göremez.</p>
+                    </div>
+                    <div class="feature-item">
                         <h4>Hibrit Uyum Analizi</h4>
                         <p>V1 deterministik kelime eşleştirme (küme kesişimi) + V2 LLM tabanlı anlamsal analiz. V1 gerekli becerilere %70, tercih edilenlere %30 ağırlık verir.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>Graceful Degradation</h4>
-                        <p>V2 (LLM) çağrısı başarısız olsa bile V1 sonucu her zaman döner. Kullanıcı hiçbir zaman boş sonuçla karşılaşmaz.</p>
+                        <h4>Dayanıklı AI İstemcisi</h4>
+                        <p>Gemini geçici hatalarında (503/429) üstel geri çekilme ile yeniden dener; model müsait değilse yedek model zincirine düşer. V2 patlarsa V1'e degrade olur — kullanıcı boş sonuç görmez.</p>
                     </div>
                     <div class="feature-item">
                         <h4>pgvector ile Vektör Araması</h4>
                         <p>Benzerlik hesabı uygulama katmanında değil, veritabanında (cosine distance operatörü) yapılır. Ölçeklenebilir bir yaklaşım.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>Modüler Router Yapısı</h4>
-                        <p>Her özellik (CV, ilan, uyum, mektup, öneri) kendi router dosyasında. Separation of concerns ile main.py sade tutuldu.</p>
+                        <h4>Production Pratikleri</h4>
+                        <p>Alembic migration'lar, rate limiting, request-ID korelasyonu, yapılandırılmış logging, 97 test + GitHub Actions CI, çok aşamalı Docker imajı.</p>
                     </div>
                 </div>
 
@@ -89,11 +102,13 @@
                 <ul>
                     <li><strong>Backend:</strong> Python, FastAPI, Uvicorn</li>
                     <li><strong>Veritabanı:</strong> PostgreSQL + pgvector (vektör benzerlik araması)</li>
-                    <li><strong>ORM:</strong> SQLAlchemy</li>
-                    <li><strong>LLM & Embedding:</strong> Google Gemini (gemini-embedding-001, 3072 boyut)</li>
-                    <li><strong>PDF parsing:</strong> pypdf</li>
-                    <li><strong>Frontend:</strong> React, Vite, React Router</li>
-                    <li><strong>Container:</strong> Docker (pgvector/pgvector:pg16 image)</li>
+                    <li><strong>ORM & Migration:</strong> SQLAlchemy 2.0, Alembic</li>
+                    <li><strong>Kimlik doğrulama:</strong> JWT (PyJWT), bcrypt, OAuth2 Bearer</li>
+                    <li><strong>LLM & Embedding:</strong> Google Gemini (gemini-2.5-flash + gemini-embedding-001, 3072 boyut)</li>
+                    <li><strong>Dayanıklılık:</strong> slowapi (rate limiting), retry + model fallback</li>
+                    <li><strong>Test & Kalite:</strong> pytest (97 test), ruff, GitHub Actions CI</li>
+                    <li><strong>Frontend:</strong> React, Vite, React Router, Vitest</li>
+                    <li><strong>DevOps:</strong> Docker (multi-stage), docker-compose, nginx, Render</li>
                 </ul>
 
                 <h2>Öneri Akışı</h2>
@@ -107,7 +122,9 @@
                 </ol>
 
                 <h2>API Endpoint'leri</h2>
+                <p>Kaynak uçları JWT ile korunur ve kullanıcıya özeldir (multi-tenant).</p>
                 <ul>
+                    <li><code>POST /auth/register, /auth/login, /auth/refresh</code> — kayıt, giriş, token yenileme</li>
                     <li><code>POST /cv-yukle</code> — PDF CV yükle ve analiz et</li>
                     <li><code>POST /is-ilani-analiz</code> — İş ilanı ekle ve analiz et</li>
                     <li><code>POST /uyum-analizi</code> — CV-ilan uyumunu hesapla (V1 + V2)</li>
@@ -119,9 +136,11 @@
                 <h2>Öğrendiklerim</h2>
                 <p>
                     Bu projede vektör veritabanlarıyla anlamsal arama yapmayı (pgvector, embedding boyutu-şema uyumu, cosine distance);
-                    deterministik ve LLM tabanlı yaklaşımları tek bir sistemde birleştirmeyi (hibrit analiz); hataya dayanıklı sistem
-                    tasarımını (graceful degradation, nullable embedding kolonu); modüler bir FastAPI mimarisi kurmayı (router ayrımı,
-                    servis katmanı); ve bir React frontend'i ayrı bir backend'e bağlamayı (CORS, kontrat uyumu) öğrendim.
+                    deterministik ve LLM tabanlı yaklaşımları tek sistemde birleştirmeyi (hibrit analiz); katmanlı ve test edilebilir bir
+                    FastAPI mimarisi kurmayı (router/service/schema ayrımı, merkezî hata yönetimi); JWT ile çok kullanıcılı (multi-tenant)
+                    kimlik doğrulama ve veri izolasyonu tasarlamayı; dış servis hatalarına karşı dayanıklılık (retry, model fallback,
+                    graceful degradation) eklemeyi; Alembic ile versiyonlu şema yönetimini; pytest ile test yazıp CI kurmayı; ve tüm yığını
+                    (React + FastAPI + PostgreSQL) Docker ile paketleyip Render'da <strong>canlıya almayı</strong> öğrendim.
                 </p>
 
                 <a href="index.html#projeler" class="back-link" style="margin-top: 48px;">
