@@ -23,7 +23,18 @@
             padding: 48px 52px;
         }
 
-        .cv-head { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px; }
+        .cv-head {
+            border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+        }
+        .cv-head-main { min-width: 0; }
+        /* Foto: kaynak gorselden bas-omuz kadraji kirpilir */
+        .cv-photo {
+            flex: none; width: 84px; height: 112px;
+            overflow: hidden; border-radius: 6px;
+            border: 1px solid var(--border); position: relative;
+        }
+        .cv-photo img { position: absolute; width: 220px; height: auto; left: -75px; top: -91px; }
         .cv-head h1 { font-size: 32px; font-weight: 700; color: var(--text-heading); letter-spacing: -0.5px; }
         .cv-head .cv-role { font-size: 15px; color: var(--accent); font-weight: 600; margin-top: 4px; }
         .cv-contact { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13.5px; color: var(--text-muted); }
@@ -90,20 +101,22 @@
             }
 
             /* Başlık */
-            .cv-head { border-bottom: 1.5pt solid #14b8a6; padding-bottom: 4.5pt; margin-bottom: 6.5pt; }
+            .cv-head { border-bottom: 1.5pt solid #14b8a6; padding-bottom: 4.5pt; margin-bottom: 6.5pt; gap: 14pt; }
+            .cv-photo { width: 17.7mm; height: 23.5mm; border: 0.5pt solid #d4d4d4; border-radius: 1.5mm; }
+            .cv-photo img { width: 46.4mm; left: -15.8mm; top: -19.3mm; }
             .cv-head h1 { font-size: 16.5pt; color: #0a0a0a; line-height: 1.12; }
             .cv-head .cv-role { font-size: 9.2pt; color: #0d9488; margin-top: 1pt; }
             .cv-contact { gap: 1.5pt 10pt; margin-top: 4pt; font-size: 7.9pt; color: #404040; }
             .cv-contact a { color: #0d9488; }
 
             /* Bölümler */
-            .cv-section { margin-bottom: 5.5pt; page-break-inside: avoid; }
+            .cv-section { margin-bottom: 5pt; page-break-inside: avoid; }
             .cv-section > h2 {
                 font-size: 7.9pt; letter-spacing: 0.8pt; color: #0d9488;
                 border-bottom: 0.5pt solid #d4d4d4; padding-bottom: 1.5pt; margin-bottom: 3.5pt;
             }
 
-            .cv-item { margin-bottom: 4pt; page-break-inside: avoid; }
+            .cv-item { margin-bottom: 3.5pt; page-break-inside: avoid; }
             .cv-item-title { font-size: 9.2pt; color: #0a0a0a; }
             .cv-item-sub { font-size: 8.1pt; color: #404040; }
             .cv-item-date { font-size: 7.9pt; color: #404040; }
@@ -149,6 +162,7 @@
 
             <!-- BAŞLIK -->
             <header class="cv-head">
+                <div class="cv-head-main">
                 <h1>Nisa Nur Altay</h1>
                 <div class="cv-role">Backend &amp; AI Developer</div>
                 <div class="cv-contact">
@@ -159,6 +173,8 @@
                     <a href="https://github.com/nisanuraltayy">github.com/nisanuraltayy</a>
                     <a href="https://nisanuraltayy.github.io">nisanuraltayy.github.io</a>
                 </div>
+                </div>
+                <div class="cv-photo"><img src="nisa-foto.jpg" alt="Nisa Nur Altay"></div>
             </header>
 
             <!-- PROFİL -->
@@ -208,8 +224,7 @@
                         <li>CV ve iş ilanlarını LLM ile yapılandırılmış veriye çeviren, uyum yüzdesi hesaplayan ve motivasyon mektubu üreten full-stack sistem.</li>
                         <li>pgvector üzerinde 3072 boyutlu embedding ve cosine distance ile anlamsal ilan önerisi; benzerlik hesabı uygulama katmanında değil veritabanında yapılır.</li>
                         <li>JWT (access + rotasyonlu refresh) kimlik doğrulama ve multi-tenancy: her kayıt kullanıcıya bağlı, veri izolasyonu garanti.</li>
-                        <li>Dış servis hatalarına karşı dayanıklılık: üstel geri çekilmeli retry, yedek model zinciri ve graceful degradation.</li>
-                        <li>97 pytest testi ve GitHub Actions CI; Alembic migration, rate limiting ve çok aşamalı Docker imajı ile Render'da canlı.</li>
+                        <li>Retry, yedek model zinciri ve graceful degradation ile dayanıklılık; 97 pytest testi, GitHub Actions CI, Alembic migration ve çok aşamalı Docker imajı ile Render'da canlı.</li>
                     </ul>
                     <div class="cv-links">
                         <a href="https://career-copilot-frontend-3ntf.onrender.com">Canlı demo</a><span>·</span>
