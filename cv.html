@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisa Nur Altay — Özgeçmiş</title>
+    <meta name="description" content="Nisa Nur Altay — Backend & AI Developer özgeçmişi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* === CV SAYFASI === */
+        .cv-wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+        .cv-actions { display: flex; gap: 12px; margin-bottom: 32px; }
+        .cv-actions .btn { font-size: 14px; padding: 10px 18px; }
+
+        .cv-doc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 48px 52px;
+        }
+
+        .cv-head { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px; }
+        .cv-head h1 { font-size: 32px; font-weight: 700; color: var(--text-heading); letter-spacing: -0.5px; }
+        .cv-head .cv-role { font-size: 15px; color: var(--accent); font-weight: 600; margin-top: 4px; }
+        .cv-contact { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13.5px; color: var(--text-muted); }
+        .cv-contact a { color: var(--text-muted); text-decoration: none; border-bottom: 1px solid transparent; }
+        .cv-contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+        .cv-section { margin-bottom: 28px; }
+        .cv-section > h2 {
+            font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 14px;
+            border-bottom: 1px solid var(--border); padding-bottom: 6px;
+        }
+
+        .cv-item { margin-bottom: 18px; }
+        .cv-item:last-child { margin-bottom: 0; }
+        .cv-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+        .cv-item-title { font-size: 15.5px; font-weight: 600; color: var(--text-heading); }
+        .cv-item-sub { font-size: 14px; color: var(--text-muted); }
+        .cv-item-date { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+        .cv-item ul { margin: 8px 0 0 18px; }
+        .cv-item li { font-size: 14px; margin-bottom: 5px; line-height: 1.55; }
+
+        .cv-links { font-size: 13px; margin-top: 6px; }
+        .cv-links a { color: var(--accent); text-decoration: none; }
+        .cv-links a:hover { text-decoration: underline; }
+        .cv-links span { color: var(--border); margin: 0 8px; }
+
+        .cv-skills { display: grid; grid-template-columns: 130px 1fr; gap: 8px 16px; font-size: 14px; }
+        .cv-skills dt { font-weight: 600; color: var(--text-heading); }
+        .cv-skills dd { color: var(--text-muted); }
+
+        .cv-summary { font-size: 14.5px; line-height: 1.65; color: var(--text-muted); }
+
+        /* Eksik bilgi işaretleri — doldurulunca silinecek */
+        .todo {
+            background: rgba(234, 179, 8, 0.14);
+            border-left: 3px solid #eab308;
+            color: #eab308;
+            padding: 2px 8px; border-radius: 3px;
+            font-size: 13px; font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .cv-doc { padding: 28px 22px; }
+            .cv-skills { grid-template-columns: 1fr; gap: 2px 0; }
+            .cv-skills dd { margin-bottom: 10px; }
+        }
+
+        /* === YAZDIRMA / PDF === */
+        @media print {
+            @page { size: A4; margin: 14mm 14mm; }
+            .navbar, .cv-actions, .footer { display: none !important; }
+            body { background: #fff !important; color: #1a1a1a !important; }
+            .cv-wrap { padding: 0; max-width: none; }
+            .cv-doc { border: none; border-radius: 0; padding: 0; background: #fff !important; }
+            .cv-head h1 { font-size: 26px; }
+            .cv-head { border-bottom: 2px solid #14b8a6; }
+            .cv-section > h2 { color: #0d9488; border-bottom: 1px solid #d4d4d4; }
+            .cv-item-title { color: #0a0a0a; }
+            .cv-item-sub, .cv-item-date, .cv-contact, .cv-summary, .cv-skills dd { color: #404040; }
+            .cv-skills dt { color: #0a0a0a; }
+            .cv-links a, .cv-contact a { color: #0d9488; }
+            .cv-item, .cv-section { page-break-inside: avoid; }
+            .todo { background: none; border: none; color: #b45309; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">nisa<span>.</span>dev</a>
+            <div class="nav-links">
+                <a href="index.html#hakkimda">Hakkımda</a>
+                <a href="index.html#projeler">Projeler</a>
+                <a href="index.html#iletisim">İletişim</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir"></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cv-wrap">
+
+        <div class="cv-actions">
+            <a href="index.html" class="btn btn-secondary">← Ana sayfa</a>
+            <button class="btn btn-primary" onclick="window.print()">PDF olarak indir</button>
+        </div>
+
+        <article class="cv-doc">
+
+            <!-- BAŞLIK -->
+            <header class="cv-head">
+                <h1>Nisa Nur Altay</h1>
+                <div class="cv-role">Backend &amp; AI Developer</div>
+                <div class="cv-contact">
+                    <span class="todo">Telefon</span>
+                    <span class="todo">Şehir</span>
+                    <a href="mailto:nisanuraltay50@gmail.com">nisanuraltay50@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/nisa-nur-altay-2009n">linkedin.com/in/nisa-nur-altay</a>
+                    <a href="https://github.com/nisanuraltayy">github.com/nisanuraltayy</a>
+                    <a href="https://nisanuraltayy.github.io">nisanuraltayy.github.io</a>
+                </div>
+            </header>
+
+            <!-- PROFİL -->
+            <section class="cv-section">
+                <h2>Profil</h2>
+                <p class="cv-summary">
+                    Akdeniz Üniversitesi Yönetim Bilişim Sistemleri 4. sınıf öğrencisiyim (mezuniyet: Haziran 2027).
+                    Python ve FastAPI ile katmanlı, test edilebilir backend servisleri geliştiriyorum; RAG mimarileri,
+                    vektör veritabanları ve LLM entegrasyonları üzerine yoğunlaşıyorum. Geliştirdiğim üç sistemi
+                    Docker ile paketleyip canlıya aldım; multi-tenant veri izolasyonu, JWT kimlik doğrulama,
+                    Alembic migration ve GitHub Actions CI gibi production pratiklerini uçtan uca uyguladım.
+                </p>
+            </section>
+
+            <!-- DENEYİM -->
+            <section class="cv-section">
+                <h2>Deneyim</h2>
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <div>
+                            <div class="cv-item-title">Backend Geliştirici Stajyeri</div>
+                            <div class="cv-item-sub">Noxart Games</div>
+                        </div>
+                        <div class="cv-item-date"><span class="todo">Tarih aralığı</span></div>
+                    </div>
+                    <ul>
+                        <li><span class="todo">Hangi teknolojilerle, hangi servis/özellik üzerinde çalıştın?</span></li>
+                        <li><span class="todo">Somut olarak ne geliştirdin? (endpoint, modül, entegrasyon)</span></li>
+                        <li><span class="todo">Ekip ve süreç: kaç kişi, Git flow / code review / task takibi</span></li>
+                        <li><span class="todo">Ölçülebilir sonuç varsa (süre, hata sayısı, performans)</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PROJELER -->
+            <section class="cv-section">
+                <h2>Projeler</h2>
+
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <div class="cv-item-title">Career Copilot — Yapay Zeka Destekli Kariyer Asistanı</div>
+                        <div class="cv-item-date">Canlıda</div>
+                    </div>
+                    <div class="cv-item-sub">FastAPI · PostgreSQL + pgvector · Google Gemini · React · Docker</div>
+                    <ul>
+                        <li>CV ve iş ilanlarını LLM ile yapılandırılmış veriye çeviren, uyum yüzdesi hesaplayan ve motivasyon mektubu üreten full-stack sistem.</li>
+                        <li>pgvector üzerinde 3072 boyutlu embedding ve cosine distance ile anlamsal ilan önerisi; benzerlik hesabı uygulama katmanında değil veritabanında yapılır.</li>
+                        <li>JWT (access + rotasyonlu refresh) kimlik doğrulama ve multi-tenancy: her kayıt kullanıcıya bağlı, veri izolasyonu garanti.</li>
+                        <li>Dayanıklılık: Gemini 503/429 hatalarında üstel geri çekilmeli retry, yedek model zinciri ve V2 → V1 graceful degradation.</li>
+                        <li>97 pytest testi, GitHub Actions CI, ruff, Alembic migration, çok aşamalı Docker imajı ile Render'da deploy.</li>
+                    </ul>
+                    <div class="cv-links">
+                        <a href="https://career-copilot-frontend-3ntf.onrender.com">Canlı demo</a><span>·</span>
+                        <a href="https://github.com/nisanuraltayy/career-copilot">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <div class="cv-item-title">FlowPilot — Çok Kiracılı İş Akışı ve Onay Platformu</div>
+                        <div class="cv-item-date">Geliştirme aşamasında</div>
+                    </div>
+                    <div class="cv-item-sub">FastAPI · PostgreSQL (RLS) · Next.js + TypeScript · Supabase Auth · Monorepo</div>
+                    <ul>
+                        <li>KOBİ'ler için talep–onay süreçlerini yürüten multi-tenant SaaS; modüler monolit mimarisi ve 10 ADR ile belgelenmiş mimari kararlar.</li>
+                        <li>Kendi yazdığım PostgreSQL tabanlı workflow runtime: sürümlenmiş tanımlar, instance/task/event yaşam döngüsü, kalıcı timer (spike 12/12 PASS).</li>
+                        <li>Tenant izolasyonu PostgreSQL Row Level Security (ENABLE + FORCE) ile uygulandı ve gerçek veritabanı testleriyle kanıtlandı.</li>
+                        <li>Broker'sız asenkron işleme: transactional outbox + idempotent inbox; kararlar runtime, durum, onay ve audit kaydını tek atomik transaction'da yazar.</li>
+                        <li>Satın alma talebi dikey dilimi uçtan uca çalışır: giriş → organizasyon → talep → sıralı onay → append-only audit timeline.</li>
+                    </ul>
+                    <div class="cv-links">
+                        <span class="todo">Repo private — public yapmayı ya da linki çıkarmayı seç</span>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <div class="cv-item-title">RAG Belge Sorgulama Sistemi</div>
+                        <div class="cv-item-date">Canlıda</div>
+                    </div>
+                    <div class="cv-item-sub">FastAPI · ChromaDB · PostgreSQL · Google Gemini · Docker</div>
+                    <ul>
+                        <li>Yüklenen TXT/PDF belgelere doğal dil ile soru sorulabilen, sıfırdan kurulmuş Retrieval-Augmented Generation backend'i.</li>
+                        <li>Polyglot persistence: vektörler ChromaDB'de, ilişkisel veri ve metadata PostgreSQL'de.</li>
+                        <li>200 karakterlik, 50 karakter örtüşmeli chunking; sorgu embedding'i ile en yakın parçalar bağlam olarak LLM'e verilir.</li>
+                        <li>Prompt engineering ile halüsinasyon kontrolü: cevap belgede yoksa sistem uydurmak yerine bilginin bulunmadığını bildirir.</li>
+                        <li>FastAPI Depends ile dependency injection, Alembic ile otomatik migration, Docker + Render deploy.</li>
+                    </ul>
+                    <div class="cv-links">
+                        <a href="https://rag-document-system-88fu.onrender.com/docs">Canlı demo</a><span>·</span>
+                        <a href="https://github.com/nisanuraltayy/rag-document-system">GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- YETENEKLER -->
+            <section class="cv-section">
+                <h2>Teknik Yetenekler</h2>
+                <dl class="cv-skills">
+                    <dt>Diller</dt>
+                    <dd>Python, SQL, JavaScript, TypeScript, HTML/CSS</dd>
+                    <dt>Backend</dt>
+                    <dd>FastAPI, REST API tasarımı, SQLAlchemy 2.0, Alembic, Pydantic, JWT/OAuth2, katmanlı mimari, dependency injection</dd>
+                    <dt>Veritabanı</dt>
+                    <dd>PostgreSQL, pgvector, Row Level Security, ChromaDB, polyglot persistence</dd>
+                    <dt>AI / ML</dt>
+                    <dd>RAG mimarisi, embedding &amp; vektör arama, Google Gemini API, prompt engineering, LLM entegrasyonu</dd>
+                    <dt>Test &amp; Kalite</dt>
+                    <dd>pytest, ruff, GitHub Actions CI, pre-commit</dd>
+                    <dt>DevOps</dt>
+                    <dd>Docker (multi-stage), docker-compose, Git/GitHub, Linux, Render deploy, nginx</dd>
+                    <dt>Frontend</dt>
+                    <dd>React, Vite, Next.js (temel düzey)</dd>
+                </dl>
+            </section>
+
+            <!-- EĞİTİM -->
+            <section class="cv-section">
+                <h2>Eğitim</h2>
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <div>
+                            <div class="cv-item-title">Akdeniz Üniversitesi</div>
+                            <div class="cv-item-sub">Yönetim Bilişim Sistemleri (Lisans) — 4. sınıf</div>
+                        </div>
+                        <div class="cv-item-date"><span class="todo">Başlangıç yılı</span> – Haziran 2027</div>
+                    </div>
+                    <ul>
+                        <li><span class="todo">GANO (yalnızca 3.00 üzerindeyse yazılacak)</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SERTİFİKALAR / DİL -->
+            <section class="cv-section">
+                <h2>Sertifikalar ve Diller</h2>
+                <div class="cv-item">
+                    <ul>
+                        <li>İngilizce: <span class="todo">seviye (+ sertifika varsa)</span></li>
+                        <li><span class="todo">Sertifika / online eğitimler (BTK Akademi, Patika, Udemy, Coursera vb.)</span></li>
+                        <li><span class="todo">Kulüp, topluluk, hackathon veya gönüllülük deneyimi</span></li>
+                    </ul>
+                </div>
+            </section>
+
+        </article>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
